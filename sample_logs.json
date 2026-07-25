@@ -1,0 +1,24 @@
+[
+  {"eventTime": "2026-07-15T03:10:00Z", "eventName": "ConsoleLogin", "userIdentity": {"type": "IAMUser", "userName": "bruteforce.fast"}, "sourceIPAddress": "203.0.113.42", "responseElements": {"ConsoleLogin": "Failure"}},
+  {"eventTime": "2026-07-15T03:11:00Z", "eventName": "ConsoleLogin", "userIdentity": {"type": "IAMUser", "userName": "bruteforce.fast"}, "sourceIPAddress": "203.0.113.42", "responseElements": {"ConsoleLogin": "Failure"}},
+  {"eventTime": "2026-07-15T03:12:00Z", "eventName": "ConsoleLogin", "userIdentity": {"type": "IAMUser", "userName": "bruteforce.fast"}, "sourceIPAddress": "203.0.113.42", "responseElements": {"ConsoleLogin": "Failure"}},
+  {"eventTime": "2026-07-15T03:13:00Z", "eventName": "ConsoleLogin", "userIdentity": {"type": "IAMUser", "userName": "bruteforce.fast"}, "sourceIPAddress": "203.0.113.42", "responseElements": {"ConsoleLogin": "Success"}},
+
+  {"eventTime": "2026-07-15T08:00:00Z", "eventName": "ConsoleLogin", "userIdentity": {"type": "IAMUser", "userName": "slow.attempts"}, "sourceIPAddress": "203.0.113.99", "responseElements": {"ConsoleLogin": "Failure"}},
+  {"eventTime": "2026-07-15T08:15:00Z", "eventName": "ConsoleLogin", "userIdentity": {"type": "IAMUser", "userName": "slow.attempts"}, "sourceIPAddress": "203.0.113.99", "responseElements": {"ConsoleLogin": "Failure"}},
+  {"eventTime": "2026-07-15T08:30:00Z", "eventName": "ConsoleLogin", "userIdentity": {"type": "IAMUser", "userName": "slow.attempts"}, "sourceIPAddress": "203.0.113.99", "responseElements": {"ConsoleLogin": "Failure"}},
+  {"eventTime": "2026-07-15T08:45:00Z", "eventName": "ConsoleLogin", "userIdentity": {"type": "IAMUser", "userName": "slow.attempts"}, "sourceIPAddress": "203.0.113.99", "responseElements": {"ConsoleLogin": "Success"}},
+
+  {"eventTime": "2026-07-15T09:00:00Z", "eventName": "ConsoleLogin", "userIdentity": {"type": "IAMUser", "userName": "jane.smith"}, "sourceIPAddress": "198.51.100.7", "responseElements": {"ConsoleLogin": "Success"}},
+
+  {"eventTime": "2026-07-15T10:00:00Z", "eventName": "ConsoleLogin", "userIdentity": {"type": "IAMUser", "userName": "never.succeeds"}, "sourceIPAddress": "203.0.113.55", "responseElements": {"ConsoleLogin": "Failure"}},
+  {"eventTime": "2026-07-15T10:01:00Z", "eventName": "ConsoleLogin", "userIdentity": {"type": "IAMUser", "userName": "never.succeeds"}, "sourceIPAddress": "203.0.113.55", "responseElements": {"ConsoleLogin": "Failure"}},
+  {"eventTime": "2026-07-15T10:02:00Z", "eventName": "ConsoleLogin", "userIdentity": {"type": "IAMUser", "userName": "never.succeeds"}, "sourceIPAddress": "203.0.113.55", "responseElements": {"ConsoleLogin": "Failure"}},
+
+  {"eventTime": "2026-07-15T11:00:00Z", "eventName": "ConsoleLogin", "userIdentity": {"type": "IAMUser", "userName": "one.fail.then.success"}, "sourceIPAddress": "203.0.113.10", "responseElements": {"ConsoleLogin": "Failure"}},
+  {"eventTime": "2026-07-15T11:01:00Z", "eventName": "ConsoleLogin", "userIdentity": {"type": "IAMUser", "userName": "one.fail.then.success"}, "sourceIPAddress": "203.0.113.10", "responseElements": {"ConsoleLogin": "Success"}},
+
+  {"eventTime": "2026-07-15T12:00:00Z", "eventName": "ConsoleLogin", "userIdentity": {"type": "Root"}, "sourceIPAddress": "203.0.113.20", "responseElements": {"ConsoleLogin": "Success"}},
+
+  {"eventTime": "2026-07-15T13:00:00Z", "eventName": "PutBucketPolicy", "userIdentity": {"type": "IAMUser", "userName": "someone.else"}, "sourceIPAddress": "203.0.113.30", "responseElements": {}}
+]
