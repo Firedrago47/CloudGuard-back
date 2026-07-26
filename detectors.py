@@ -2,20 +2,23 @@ from utils import parse_time
 
 
 def detect_brute_force(log_data, threshold=3, window_seconds=600):
-    failure_tracker = {}  # dictionary: username -> number of consecutive failures
-    flagged = []  # list to store flagged usernames
+    failure_tracker = {}
+    flagged = []
 
     for event in log_data:
         if event.get('eventName') != 'ConsoleLogin':
-            continue  # skip non-login events
+            continue
 
         username = event.get('userIdentity', {}).get('userName')
         status = event.get('responseElements', {}).get('ConsoleLogin')
         event_time = parse_time(event.get('eventTime'))
         source_ip = event.get('sourceIPAddress')
 
+        if not username:
+            continue
+
         if status == 'Failure':
-            if username not in failure_tracker or failure_tracker[username]['first_failure_time'] is None:
+            if username not in failure_tracker or failure_tracker[username].get('first_failure_time') is None:
                 failure_tracker[username] = {'count': 1, 'first_failure_time': event_time, 'flagged': False}
             else:
                 failure_tracker[username]['count'] += 1
@@ -36,6 +39,6 @@ def detect_brute_force(log_data, threshold=3, window_seconds=600):
 
         elif status == 'Success':
             if username in failure_tracker:
-                failure_tracker[username] = {"count": 0, "first_failure_time": None, "flagged": False}  # reset on success
+                failure_tracker[username] = {"count": 0, "first_failure_time": None, "flagged": False}
 
     return flagged

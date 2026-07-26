@@ -26,11 +26,19 @@ def aws_log():
     li = []
     for event in response['Events']:
         detail = json.loads(event['CloudTrailEvent'])
+        identity = detail.get('userIdentity', {})
+
+        # Extract username: try CloudTrailEvent detail first, fall back to top-level
+        username = identity.get('userName') or event.get('Username')
+
+        # If still no username but it's a Root session, label it "root"
+        if not username and identity.get('type') == 'Root':
+            username = 'root'
 
         adapted_event = {
             "eventName": event['EventName'],
             "eventTime": event['EventTime'].isoformat(),
-            "userIdentity": {"userName": event.get('Username')},
+            "userIdentity": {"userName": username, "type": identity.get('type')},
             "sourceIPAddress": detail.get('sourceIPAddress'),
             "responseElements": {"ConsoleLogin": detail.get('responseElements', {}).get('ConsoleLogin')}
         }
