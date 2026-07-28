@@ -5,7 +5,7 @@ from botocore.exceptions import BotoCoreError, ClientError
 
 
 def aws_log():
-    client = boto3.client('cloudtrail', region_name='us-east-1')
+    client = boto3.client('cloudtrail', region_name='eu-north-1')  # Change to your desired region
 
     try:
         response = client.lookup_events(

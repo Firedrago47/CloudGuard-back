@@ -3,7 +3,7 @@ import json
 
 from datetime import datetime, timedelta, timezone
 
-client = boto3.client('cloudtrail', region_name='us-east-1')
+client = boto3.client('cloudtrail', region_name='eu-north-1')
 
 response = client.lookup_events(
     LookupAttributes=[
@@ -30,6 +30,7 @@ for event in response['Events']:
         "responseElements": {"ConsoleLogin": detail.get('responseElements', {}).get('ConsoleLogin')}
     }
     li.append(adapted_event)
+    print(adapted_event)
 
 li.reverse()  # oldest first
 
